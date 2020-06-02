@@ -1,9 +1,11 @@
 /*Inicio*/
+//se agregaron canvas
 window.onload = function () {
 	canvas = document.getElementById("miCanvas");
 	if (canvas && canvas.getContext) {
 		ctx = canvas.getContext("2d");
 		if (ctx) {
+			//se agregaron imagenes a la funcion
 			x = canvas.width / 2;
 			if (mensaje("INVADERS"));	
 			imgNave = new Image();
@@ -12,7 +14,8 @@ window.onload = function () {
 			imgNave.src = "imagenes/nave.png";
 			imgNave.onload = function () {
 				nave = new nave(0);
-            }
+			}
+			//disparos
             imgOvni.onload = function () {
 				for (var i = 0; i < 5; i++) {
 					for (var j = 0; j < 10; j++) {
