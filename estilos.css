@@ -7,13 +7,14 @@ h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 h4 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
 }
 .img {
     width: 600px;
     height: 500px;
     margin: auto;
 }
+/* Colores de la ventana */
 #miCanvas {
     border: groove 5px rgb(41, 82, 170);
     background-color: black;
