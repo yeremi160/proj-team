@@ -1,0 +1,20 @@
+body{
+    background-color: #4d3e3e;
+    text-align: center;
+}
+
+h1{
+    color: #ffffff;
+    padding: 5px;
+    font-family: verdana;
+}
+
+h2{
+    color: #ffffff;
+    padding: 5px;
+    font-family: verdana;   
+}
+canvas{
+    border: #1f4068;
+    background-color: #bb3b0e;
+}
