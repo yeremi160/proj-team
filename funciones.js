@@ -262,7 +262,7 @@ function verifica() {
 		}
 	}
 }
-/*Verificacion de la municion*/
+//arreglo municion
 function checarBalas(){
 	var balasArrayVal = 0;
 	for(let i = 0 ; i < balas_array.length; i++){
@@ -276,4 +276,60 @@ function checarBalas(){
 			gameOver();
 	}
 }
+//canvas 2
+function pinta() {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	score();
+	municiones();
+	nave.dibuja(x);
+	//enemigos
+	for (var i = 0; i < 100; i++) {
+		if (balas_array[i] != null) {
+			balas_array[i].dibuja();
+			if (balas_array[i].y < 0) balas_array[i] = null;
+		}
+	}
+	for (var i = 0; i < balasEnemigas_array.length; i++) {
+		if (balasEnemigas_array[i] != null) {
+			balasEnemigas_array[i].dispara();
+			if (balasEnemigas_array[i].y > canvas.height) balasEnemigas_array[i] = null;
+		}
+	}
+	numEnemigos = 0;
+	for (var i = 0; i < ovnis_array.length; i++) {
+		if (ovnis_array[i] != null) {
+			ovnis_array[i].dibuja();
+			if (ovnis_array[i].y == nave.y) {
+				gameOver();
+			}
+			numEnemigos++;
+		}
+	}
+	if (numEnemigos == 0) gameOver();
+}
 
+//disparos enemigos
+function disparaEnemigo() {
+	for (var i = ovnis_array.length - 1; i > 0; i--) {
+		if (ovnis_array[i] != null) {
+			ultimos.push(i);
+		}
+		if (ultimos.length >= 10) break;
+	}
+	Array.prototype.clean = function(deleteValue) { 
+		for (var i = 0; i < this.length; i++) {
+				if (this[i] == deleteValue) { 
+					this.splice(i, 1); i--; 
+				} 
+			} return this; 
+		}; 
+	ovnis_array.clean(undefined);
+	d = ultimos[Math.floor(Math.random() * ovnis_array.length)];
+	if(ovnis_array[d] == null || d == null){
+		ovnis_array.clean(undefined);
+		d = Math.floor(Math.random() * ovnis_array.length);
+	}
+	balasEnemigas_array.push(new Bala(ovnis_array[d].x + ovnis_array[d].w / 2, ovnis_array[d].y, 5));
+	clearTimeout(disparoEnemigo);
+	disparoEnemigo = setTimeout(disparaEnemigo, tiempoDisparo);
+}
