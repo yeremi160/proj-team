@@ -54,7 +54,10 @@ function movimiento(){
     cabeza.setxy(nuevax, nuevay)
 
 }
-
+// función para los controles
+function control(event){
+    var codtecla = event.keyCode;
+}
 //motor de juego
 //dibujar
 function dibujar(){
