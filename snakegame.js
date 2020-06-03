@@ -6,11 +6,11 @@ var tam = 10;
 //clase que hereda las demás clases y llega los métodos de tetención de lolliciones
 class objeto{
     constructor(){
-        this.tam = tam
+        this.tam = tam;
     }
     choque(obj){
         var difx = Math.abs(this.x, - obj.x);
-        var dify = Math.abs(this.y, - obj.y)
+        var dify = Math.abs(this.y, - obj.y);
         if(difx >= 0 && difx < tam && dify >= 0 && dify < tam){
             return true;
         }else{
@@ -29,7 +29,7 @@ class cola extends objeto{
     //método de dibujo
     dibujar(ctx){
         ctx.fillStyle = "#fcbf1e";
-        ctx.fillRect(this.x, this.y, this.tam, this.tam)
+        ctx.fillRect(this.x, this.y, this.tam, this.tam);
     }
     setxy(x,y){
         this.x = x;
@@ -37,7 +37,7 @@ class cola extends objeto{
     }
 }
 //objetos del juego
-var cabeza = new cola (20,20)
+var cabeza = new cola (20,20);
 
 //variables para lograr el movimiento
 //variables booleanas, van a permitir habilitar lo bloquear los ejes
@@ -93,9 +93,9 @@ function control(event){
 //motor de juego
 //dibujar
 function dibujar(){
-    const canvas = document.getElementById("canvas")
-    const ctx = canvas.getContext("2d")
-    ctx.clearRect(0, 0, canvas.Width, canvas.height)
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    ctx.clearRect(0,0, canvas.Width, canvas.height);
     cabeza.dibujar(ctx);
 }
 //llamar las funciones
@@ -104,4 +104,4 @@ function animar(){
     movimiento();
 }
 //darle función
-setInterval("animar()", velocidad)
+setInterval("animar()", velocidad);
