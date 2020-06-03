@@ -21,7 +21,7 @@ class objeto{
 }
 //con extendes digo que es una subclase
 class cola extends objeto{
-    constructor(x, y){
+    constructor(x,y){
         super();
         this.x = x;
         this.y = y;
@@ -78,15 +78,15 @@ function control(event){
         if(codtecla == 37){
             ydir = 0;
             xdir = -tam;
-            ejex = false;
-            ejey = true;
+            ejex = true;
+            ejey = false;
         }
         //movimeinto hacia la izquierda
         if(codtecla == 39){
             ydir = 0;
             xdir = tam;
-            ejex = false;
-            ejey = true;
+            ejex = true;
+            ejey = false;
         }
     }
 }
