@@ -57,6 +57,38 @@ function movimiento(){
 // función para los controles
 function control(event){
     var codtecla = event.keyCode;
+    if (ejex){
+        //movimiento a la tecla de arriba
+        if(codtecla == 38){
+            ydir = -tam;
+            xdir = 0;
+            ejex = false;
+            ejey = true;
+        }
+        //movimiento hacia abajo
+        if(codtecla == 40){
+            ydir = tam;
+            xdir = 0;
+            ejex = false;
+            ejey = true;
+        }
+    }
+    if(ejey){
+        //movimiento hacia la derecha
+        if(codtecla == 37){
+            ydir = 0;
+            xdir = -tam;
+            ejex = false;
+            ejey = true;
+        }
+        //movimeinto hacia la izquierda
+        if(codtecla == 39){
+            ydir = 0;
+            xdir = tam;
+            ejex = false;
+            ejey = true;
+        }
+    }
 }
 //motor de juego
 //dibujar
