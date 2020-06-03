@@ -210,3 +210,26 @@ function colisiones() {
 		}
 	}
 }
+//ganamos o perdimos
+function gameOver() {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	balas_array = [];
+	ovnis_array = [];
+	balasEnemigas_array = [];
+	if( enemigosVivos == 0 ){
+		mensaje("GANASTE");
+	}else{
+		mensaje("PERDISTE :(");
+	}
+	endGame = true;
+	clearTimeout(disparoEnemigo);
+}
+//PUNTAJES
+function score() {
+	ctx.save();
+	ctx.fillStyle = "white";
+	ctx.clearRect(0, 0, canvas.width, 20);
+	ctx.font = "bold 12px Courier";
+	ctx.fillText("PUNTOS: " + puntos, 10, 20);
+	ctx.restore();
+}
