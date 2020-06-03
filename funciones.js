@@ -112,3 +112,52 @@ function nave(x) {
 		
 	};
 }
+/*Objetos de Enemigos y animaciones*/
+function Enemigo(x, y) {
+	this.x = x;
+	this.y = y;
+	this.w = 35;
+	this.veces = 0;
+	this.dx = 5;
+	this.ciclos = 0;
+	this.num = 14;
+	this.figura = true;
+	this.vive = true;
+	this.dibuja = function () {
+		//Retraso
+		if (this.ciclos > 20) {
+			//saltitos
+			if (this.veces > this.num) {
+				this.dx *= -1;
+				this.veces = 0;
+				this.num = 28;
+				this.y += 40;
+				this.dx = (this.dx > 0) ? this.dx++ : this.dx--;
+			} else {
+				this.x += this.dx;
+			}
+			this.veces++;
+			this.ciclos = 0;
+			this.figura = !this.figura;
+		} else {
+			this.ciclos++;
+		}
+		if (this.vive) {
+			if (imgAni < 4) {
+				ctx.drawImage(imgOvni, 0   , 0   , 32  , 32  , this.x, this.y, 35  , 35);
+				//           (imgFile, xini, yini, wimg, himg, xpos  , ypos  , wrez, hrez)
+			} else if(imgAni < 8) {
+				ctx.drawImage(imgOvni, 32, 0, 32, 32, this.x, this.y, 35, 35);
+			} else if(imgAni < 12) {
+				ctx.drawImage(imgOvni, 64, 0, 32, 32, this.x, this.y, 35, 35);
+			} else if(imgAni > 11) {
+				ctx.drawImage(imgOvni, 0, 0, 32, 32, this.x, this.y, 35, 35);
+				imgAni = 0;
+			}
+		} else {
+			ctx.fillStyle = "black";
+			ctx.fillRect(this.x, this.y, 35, 30);
+		}
+
+	};
+}
