@@ -31,10 +31,29 @@ class cola extends objeto{
         ctx.fillStyle = "#fcbf1e";
         ctx.fillRect(this.x, this.y, this.tam, this.tam)
     }
-
+    setxy(x,y){
+        this.x = x;
+        this.y = y;
+    }
 }
 //objetos del juego
 var cabeza = new cola (20,20)
+
+//variables para lograr el movimiento
+//variables booleanas, van a permitir habilitar lo bloquear los ejes
+var ejex = true;
+var ejey = true;
+//variables para darle dirección al movimiento
+var xdir = 0;
+var ydir = 0;
+
+//funcion para dar movimiento
+function movimiento(){
+    var nuevax = cabeza.x + xdir;
+    var nuevay = cabeza.y + ydir;
+    cabeza.setxy(nuevax, nuevay)
+
+}
 
 //motor de juego
 //dibujar
@@ -47,6 +66,7 @@ function dibujar(){
 //llamar las funciones
 function animar(){
     dibujar();
+    movimiento();
 }
 //darle función
 setInterval("animar()", velocidad)
