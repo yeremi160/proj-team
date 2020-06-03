@@ -18,6 +18,20 @@ class objeto{
 
     }
 }
+class cola extends objeto{
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+    }
+    dibujar(ctx){
+        ctx.fillStyle = "##fcbf1e";
+        ctx.fillRect(this.x, this.y, this.tam, this.tam)
+    }
+    setxy(x, y){
+        this.x = x;
+        this.y = y;
+    }
+}
 
 //fucion para el dibujo
 function dibujar(){
