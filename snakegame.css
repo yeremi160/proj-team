@@ -15,6 +15,6 @@ h2{
     font-family: verdana;   
 }
 canvas{
-    border: #1f4068;
+    border: solid;
     background-color: #bb3b0e;
 }
