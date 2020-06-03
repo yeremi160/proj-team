@@ -333,3 +333,4 @@ function disparaEnemigo() {
 	clearTimeout(disparoEnemigo);
 	disparoEnemigo = setTimeout(disparaEnemigo, tiempoDisparo);
 }
+
