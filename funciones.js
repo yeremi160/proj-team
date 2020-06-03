@@ -233,3 +233,47 @@ function score() {
 	ctx.fillText("PUNTOS: " + puntos, 10, 20);
 	ctx.restore();
 }
+//municion
+function municiones() {
+	ctx.save();
+	ctx.fillStyle = "white";
+	ctx.clearRect(0, 20, canvas.width, 20);
+	ctx.font = "bold 12px Courier";
+	ctx.fillText("MUNICION: " + municion, 10, 40);
+	ctx.restore();
+}
+//teclas de movimiento
+function verifica() {
+	if (tecla[teclaDerecha]) x += 5;
+	if (tecla[teclaIzquierda]) x -= 5;
+	//Verifica cañon
+	if (x > canvas.width - 20) x = canvas.width - 20;
+	if (x < 0) x = 0;
+	//Disparo con espacio
+	if (tecla[teclaEspacio]) {
+		if (tiempoBala == true && municion !=0 ){
+			tiempoBala = false;
+			balas_array.push(new Bala(nave.x + 12, nave.y - 3, 5));
+			(municion >0)?municion = municion - 1 : false;
+			tecla[teclaEspacio] = false;
+			disparaEnemigo();
+			//tiempo de disparo
+			setTimeout(function(){tiempoBala = true;}, 150);
+		}
+	}
+}
+/*Verificacion de la municion*/
+function checarBalas(){
+	var balasArrayVal = 0;
+	for(let i = 0 ; i < balas_array.length; i++){
+		if(balas_array[i] != null){
+			balasArrayVal = 1;
+		}
+	}
+	if(municion == 0 && balas_array.length == 100 && balasArrayVal == 0 && enemigosVivos > 0){
+		tecla[teclaEspacio] = false;
+			alert("Without ammunition");
+			gameOver();
+	}
+}
+
