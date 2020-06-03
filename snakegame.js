@@ -78,15 +78,15 @@ function control(event){
         if(codtecla == 37){
             ydir = 0;
             xdir = -tam;
-            ejex = true;
             ejey = false;
+            ejex = true;
         }
         //movimeinto hacia la izquierda
         if(codtecla == 39){
             ydir = 0;
             xdir = tam;
-            ejex = true;
             ejey = false;
+            ejex = true;
         }
     }
 }
