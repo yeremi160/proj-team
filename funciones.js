@@ -10,8 +10,8 @@ window.onload = function () {
 			if (mensaje("INVADERS"));	
 			imgNave = new Image();
 			imgOvni = new Image();
-			imgOvni.src = "imagenes/ovni.png";
-			imgNave.src = "imagenes/nave.png";
+			imgOvni.src = "iamgenes/ovni.png";
+			imgNave.src = "iamgenes/nave.png";
 			imgNave.onload = function () {
 				nave = new nave(0);
 			}
@@ -30,3 +30,18 @@ window.onload = function () {
 		}
 	}
 }
+/*Listener, Animaciones, correcta funcion de los distintos navegadores*/
+window.requestAnimationFrame = (function () {
+	return window.requestAnimationFrame ||
+		window.webkitRequestAnimationFrame ||
+		window.mozRequestAnimationFrame ||
+		function (callback) { window.setTimeout(callback, 17); }
+})();
+document.addEventListener("keydown", function (e) {
+	teclaPulsada = e.keyCode;
+	tecla[e.keyCode] = true;
+});
+document.addEventListener("keyup", function (e) {
+	tecla[e.keyCode] = false;
+});
+
