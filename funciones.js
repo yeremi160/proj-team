@@ -161,3 +161,20 @@ function Enemigo(x, y) {
 
 	};
 }
+//canvas
+function anima() {
+	if (endGame == false) {
+		requestAnimationFrame(anima);
+		verifica();
+		pinta();
+		colisiones();
+	}
+}
+function mensaje(cadena) {
+	var lon = (canvas.width - (50 * cadena.length)) / 2;
+	ctx.fillStyle = "white";
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.font = "bold 75px Arial";
+	ctx.fillText(cadena, lon, 220);
+}
+
