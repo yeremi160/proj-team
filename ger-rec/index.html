@@ -219,3 +219,18 @@
                 return{x:x, y:y}
             }
            
+            /* Detecta tecla clickeada y la compara con las de la palabra ya elegida al azar */
+            function selecciona(e){
+                var pos = ajusta(e.clientX, e.clientY);
+                var x = pos.x;
+                var y = pos.y;
+                var tecla;
+                var bandera = false;
+                for (var i = 0; i < teclas_array.length; i++){
+                    tecla = teclas_array[i];
+                    if (tecla.x > 0){
+                        if ((x > tecla.x) && (x < tecla.x + tecla.ancho) && (y > tecla.y) && (y < tecla.y + tecla.alto)){
+                            break;
+                        }
+                    }
+                }
