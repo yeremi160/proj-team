@@ -84,4 +84,12 @@
                 ctx.font = "bold 20px courier";
                 ctx.fillText(this.letra, this.x+this.ancho/2-5, this.y+this.alto/2+5);
             }
-
+            
+              /* Dibuja la letra y su caja */
+              function dibujaLetraLetra(){
+                var w = this.ancho;
+                var h = this.alto;
+                ctx.fillStyle = "black";
+                ctx.font = "bold 40px Courier";
+                ctx.fillText(this.letra, this.x+w/2-12, this.y+h/2+14);
+            }
