@@ -202,4 +202,20 @@
                     x += lon + margen;
                 }
             }
+
+            function horca(errores){
+                var imagen = new Image();
+                imagen.src = "imagenes/ahorcado"+errores+".png";
+                imagen.onload = function(){
+                    ctx.drawImage(imagen, 390, 0, 230, 230);
+                }
+            }
+            
+            /* ajustar coordenadas */
+            function ajusta(xx, yy){
+                var posCanvas = canvas.getBoundingClientRect();
+                var x = xx-posCanvas.left;
+                var y = yy-posCanvas.top;
+                return{x:x, y:y}
+            }
            
