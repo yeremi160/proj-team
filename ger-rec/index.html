@@ -234,3 +234,18 @@
                         }
                     }
                 }
+
+                if (i < teclas_array.length){
+                    for (var i = 0 ; i < palabra.length ; i++){ 
+                        letra = palabra.substr(i, 1);
+                        if (letra == tecla.letra){ /* comparamos y vemos si acerto la letra */
+                            caja = letras_array[i];
+                            caja.dibujaLetra();
+                            aciertos++;
+                            bandera = true;
+                        }
+                    }
+                    if (bandera == false){ /* Si falla aumenta los errores y checa si perdio para mandar a la funcion gameover */
+                        errores++;
+                        horca(errores);
+                        if (errores == 5) gameOver(errores);
