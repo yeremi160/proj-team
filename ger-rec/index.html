@@ -93,3 +93,10 @@
                 ctx.font = "bold 40px Courier";
                 ctx.fillText(this.letra, this.x+w/2-12, this.y+h/2+14);
             }
+            function dibujaCajaLetra(){
+                ctx.fillStyle = "white";
+                ctx.strokeStyle = "black";
+                ctx.fillRect(this.x, this.y, this.ancho, this.alto);
+                ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
+            }
+            
