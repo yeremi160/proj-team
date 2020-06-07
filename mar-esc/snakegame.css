@@ -18,3 +18,9 @@ canvas{
     border: solid;
     background-color: #bb3b0e;
 }
+
+nav{
+    text-align: left;
+    background-color: #ffffff;
+    padding: 10px;
+}
