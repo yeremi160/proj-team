@@ -36,8 +36,29 @@ class cola extends objeto{
         this.y = y;
     }
 }
+class comida extends objeto{
+    constructor(){
+        super();
+        this.x = this.generar();
+        this.y = this.generar();
+    }
+    generar(){
+        var num = (Math.floor(Math.random() * 59)) * 10;
+        return num;
+    }
+    colocar(){
+        this.x = this.generar();
+        this.y = this.generar();
+    }
+    dibujar(ctx){
+        ctx.fillStyle = "#ffffff"
+        ctx.fillRect(this.x, this.y, this.tam, this.tam);
+    }
+
+}
 //objetos del juego
 var cabeza = new cola (20,20);
+var food = new comida ();
 
 //variables para lograr el movimiento
 //variables booleanas, van a permitir habilitar lo bloquear los ejes
@@ -49,9 +70,9 @@ var ydir = 0;
 
 //funcion para dar movimiento
 function movimiento(){
-    var nuevax = cabeza.x + xdir;
-    var nuevay = cabeza.y + ydir;
-    cabeza.setxy(nuevax, nuevay)
+    var nx = cabeza.x + xdir;
+    var ny = cabeza.y + ydir;
+    cabeza.setxy(nx, ny)
 
 }
 // función para los controles
@@ -86,7 +107,7 @@ function control(event){
             ydir = 0;
             xdir = tam;
             ejey = false;
-            ejex = true;
+            ejex = true; 
         }
     }
 }
@@ -97,6 +118,8 @@ function dibujar(){
     var ctx = canvas.getContext("2d");
     ctx.clearRect(0,0, canvas.Width, canvas.height);
     cabeza.dibujar(ctx);
+    food.dibujar(ctx);
+    
 }
 //llamar las funciones
 function animar(){
