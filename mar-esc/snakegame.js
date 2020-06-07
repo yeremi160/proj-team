@@ -1,7 +1,8 @@
+//una variable declarada afuera de una función es una variable global
 //variables globales
-var velocidad = 80;
+const velocidad = 80;
 //variable tamaño
-var tam = 10;
+const tam = 10;
 //rutinas de detección de coliciones
 //clase que hereda las demás clases y llega los métodos de tetención de lolliciones
 class objeto{
@@ -9,8 +10,8 @@ class objeto{
         this.tam = tam;
     }
     choque(obj){
-        var difx = Math.abs(this.x, - obj.x);
-        var dify = Math.abs(this.y, - obj.y);
+        const difx = Math.abs(this.x, - obj.x);
+        const dify = Math.abs(this.y, - obj.y);
         if(difx >= 0 && difx < tam && dify >= 0 && dify < tam){
             return true;
         }else{
@@ -43,7 +44,7 @@ class comida extends objeto{
         this.y = this.generar();
     }
     generar(){
-        var num = (Math.floor(Math.random() * 59)) * 10;
+        const num = (Math.floor(Math.random() * 59)) * 10;
         return num;
     }
     colocar(){
@@ -57,8 +58,8 @@ class comida extends objeto{
 
 }
 //objetos del juego
-var cabeza = new cola (20,20);
-var food = new comida ();
+const cabeza = new cola (20,20);
+const food = new comida ();
 
 //variables para lograr el movimiento
 //variables booleanas, van a permitir habilitar lo bloquear los ejes
@@ -70,14 +71,14 @@ var ydir = 0;
 
 //funcion para dar movimiento
 function movimiento(){
-    var nx = cabeza.x + xdir;
-    var ny = cabeza.y + ydir;
+    const nx = cabeza.x + xdir;
+    const ny = cabeza.y + ydir;
     cabeza.setxy(nx, ny)
 
 }
 // función para los controles
 function control(event){
-    var codtecla = event.keyCode;
+    const codtecla = event.keyCode;
     if (ejex){
         //movimiento a la tecla de arriba
         if(codtecla == 38){
@@ -114,8 +115,8 @@ function control(event){
 //motor de juego
 //dibujar
 function dibujar(){
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
     ctx.clearRect(0,0, canvas.Width, canvas.height);
     cabeza.dibujar(ctx);
     food.dibujar(ctx);
@@ -125,6 +126,10 @@ function dibujar(){
 function animar(){
     dibujar();
     movimiento();
+    if (cabeza.choque(comida)) {
+        comida.colocar();
+
+    }
 }
 //darle función
 setInterval("animar()", velocidad);
