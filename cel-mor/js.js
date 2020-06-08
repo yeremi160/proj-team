@@ -16,7 +16,13 @@ function cargaimagenes(){
     antiv = new image();
     suelo = new image();
     nube = new image();
+    
+    virus.src = 'img/covid1.png';
+    antiv.src = 'img/antiv1.png';
+    suelo.src = 'img/suelo.png';
+    nube.src = 'img/nube.png';
 }
+
 
 //asignación de variables para ciertas funciones
 var ancho=700;
@@ -37,18 +43,25 @@ function borracanvas(){
     canvas.height =alto;
 }
 
+//función para dibujar antivirus
+function dibujaantiv(){
 
-
+}
 
 
 
 //BUCLE para que el juego se repita--------------------------------------------------
 var FPS = 10;
 //INTERVALO DE TIEMPO y función principal
-setInterval(fun)
+setInterval(function(){
+    principal();
+},1000/10);
 
 
-
+function principal(){
+    borracanvas();
+    dibujaantiv();
+}
 
 
 
