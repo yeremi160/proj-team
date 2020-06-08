@@ -3,6 +3,7 @@
 const velocidad = 80;
 //variable tamaño
 const tam = 10;
+
 //rutinas de detección de coliciones
 //clase que hereda las demás clases y llega los métodos de tetención de lolliciones
 class objeto{
@@ -71,14 +72,14 @@ var ydir = 0;
 
 //funcion para dar movimiento
 function movimiento(){
-    const nx = cabeza.x + xdir;
-    const ny = cabeza.y + ydir;
+    var nx = cabeza.x + xdir;
+    var ny = cabeza.y + ydir;
     cabeza.setxy(nx, ny)
 
 }
 // función para los controles
 function control(event){
-    const codtecla = event.keyCode;
+    var codtecla = event.keyCode;
     if (ejex){
         //movimiento a la tecla de arriba
         if(codtecla == 38){
@@ -117,7 +118,7 @@ function control(event){
 function dibujar(){
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
-    ctx.clearRect(0,0, canvas.Width, canvas.height);
+    ctx.clearRect(0,0, canvas.clientWidth, canvas.clientHeight);
     cabeza.dibujar(ctx);
     food.dibujar(ctx);
     
@@ -130,6 +131,7 @@ function animar(){
         comida.colocar();
 
     }
+
 }
 //darle función
 setInterval("animar()", velocidad);
