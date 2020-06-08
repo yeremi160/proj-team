@@ -12,9 +12,9 @@ function cargaimagenes(){
     antiv = new image();
     suelo = new image();
     
-    virus.src = 'img/covid1.png';
-    antiv.src = 'img/antiv1.png';
-    suelo.src = 'img/suelo.png';
+    virus.src = 'covid1.png';
+    antiv.src = 'antiv1.png';
+    suelo.src = 'suelo.png';
 }
 
 //asignación de variables para ciertas funciones
