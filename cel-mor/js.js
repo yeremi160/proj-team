@@ -6,6 +6,17 @@ document.addEventListener('keydown', funcion(evento)
     }
 });
 //FIN DE FUNCION SALTAR -------------------------------------------------
+//asignación de variables para ciertas funciones
+var ancho=700;
+var alto=300;
+//variables para canvas y para contexto
+var canvas, ctx;
+
+function inicializa(){
+    //varible canvas obteniendo id canvas de html
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getcontext('2d');
+}
 
 //BUCLE para que el juego se repita
 var FPS = 10;
