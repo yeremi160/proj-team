@@ -53,6 +53,9 @@ class cola extends objeto{
             this.siguiente.meter();
         }
     }
+    versiguiente(){
+        return this.siguiente;
+    }
 }
 class comida extends objeto{
     constructor(){
@@ -129,6 +132,33 @@ function control(event){
         }
     }
 }
+function choquecuerpo(){
+    var temp = null;
+    try{
+        temp = cabeza.versiguiente().versiguiente(); 
+
+    }catch(err){
+        temp = null;
+    }
+    while (temp  = null){
+        if (cabeza.choque(temp)){
+            //fin de juego
+            finjuego();
+        } else {
+            temp = temp.versiguiente();
+        }
+
+    }
+}
+function finjuego(){
+    xdir = 0;
+    ydir = 0;
+    ejexv = true;
+    ejey = true;
+    cabeza = new cola(20,20);
+    food = new comida();
+    alert ("Has perdido")
+}
 //motor de juego
 //dibujar
 function dibujar(){
@@ -141,6 +171,7 @@ function dibujar(){
 }
 //llamar las funciones
 function animar(){
+    choquecuerpo();
     dibujar();
     movimiento();
     //función para que desaparezca la comida
