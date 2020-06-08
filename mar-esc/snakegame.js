@@ -27,15 +27,31 @@ class cola extends objeto{
         super();
         this.x = x;
         this.y = y;
+        this.siguiente = null;
+
     }
     //método de dibujo
+    //siguiente, para que los cuadritos sigan a la cabeza
     dibujar(ctx){
+        if (this.siguiente  = null){
+            this.siguiente.dibujar(ctx);
+        }
         ctx.fillStyle = "#fcbf1e";
         ctx.fillRect(this.x, this.y, this.tam, this.tam);
     }
     setxy(x,y){
+        if (this.siquiente  = null){
+            this.siguiente.setxy(this.x, this.y);
+        }
         this.x = x;
         this.y = y;
+    }
+    meter(){
+        if (this.siguiente == null){
+            this.siguiente = new cola (this.x, this.y)
+        } else {
+            this.siguiente.meter();
+        }
     }
 }
 class comida extends objeto{
@@ -127,8 +143,10 @@ function dibujar(){
 function animar(){
     dibujar();
     movimiento();
-    if (cabeza.choque(comida)) {
-        comida.colocar();
+    //función para que desaparezca la comida
+    if (cabeza.choque(comida)){
+        food.colocar();
+        cabeza.meter();
 
     }
 
