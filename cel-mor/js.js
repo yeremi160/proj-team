@@ -6,9 +6,18 @@ document.addEventListener('keydown', funcion(evento)
     }
 });
 
-//variables para las imágenes del juego
-var ivirus, iantiv, isuelo, inube;
+
 //FIN DE FUNCION SALTAR -------------------------------------------------
+//variables para las imágenes del juego
+var virus, antiv, suelo, nube;
+//funcion para llamar a las imagenes
+function cargaimagenes(){
+    virus = new image();
+    antiv = new image();
+    suelo = new image();
+    nube = new image();
+}
+
 //asignación de variables para ciertas funciones
 var ancho=700;
 var alto=300;
@@ -19,6 +28,7 @@ function inicializa(){
     //varible canvas obteniendo id canvas de html
     canvas = document.getElementById('canvas');
     ctx = canvas.getcontext('2d');
+    cargaimagenes()
 }
 
 //función para borrar CANVAS, la más sencilla, pasando de una variable a otra
