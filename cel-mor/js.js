@@ -1,7 +1,6 @@
 var context= new AudioContext();
 
 function notamusical(frecuencia){
-
     var o=context.createOscillator();
     g= context.createGain();
     o.connect(g);
