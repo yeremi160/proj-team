@@ -132,12 +132,22 @@ function control(event){
         }
     }
 }
+function finjuego(){
+    xdir = 0;
+    ydir = 0;
+    ejexv = true;
+    ejey = true;
+    cabeza = new cola(20,20);
+    food = new comida();
+    alert ("Has perdido")
+}
+
 function choquecuerpo(){
     var temp = null;
     try{
         temp = cabeza.versiguiente().versiguiente(); 
 
-    }catch(err){
+    }catch(error ){
         temp = null;
     }
     while (temp  = null){
@@ -150,15 +160,7 @@ function choquecuerpo(){
 
     }
 }
-function finjuego(){
-    xdir = 0;
-    ydir = 0;
-    ejexv = true;
-    ejey = true;
-    cabeza = new cola(20,20);
-    food = new comida();
-    alert ("Has perdido")
-}
+
 //motor de juego
 //dibujar
 function dibujar(){
