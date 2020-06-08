@@ -5,6 +5,9 @@ document.addEventListener('keydown', funcion(evento)
         console.log("salta");
     }
 });
+
+//variables para las imágenes del juego
+var ivirus, iantiv, isuelo, inube;
 //FIN DE FUNCION SALTAR -------------------------------------------------
 //asignación de variables para ciertas funciones
 var ancho=700;
@@ -18,7 +21,18 @@ function inicializa(){
     ctx = canvas.getcontext('2d');
 }
 
-//BUCLE para que el juego se repita
+//función para borrar CANVAS, la más sencilla, pasando de una variable a otra
+function borracanvas(){
+    canvas.width = ancho;
+    canvas.height =alto;
+}
+
+
+
+
+
+
+//BUCLE para que el juego se repita--------------------------------------------------
 var FPS = 10;
 //INTERVALO DE TIEMPO y función principal
 setInterval(fun)
