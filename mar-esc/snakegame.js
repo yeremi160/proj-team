@@ -186,3 +186,4 @@ function animar(){
 }
 //darle función
 setInterval("animar()", velocidad);
+//sdsfsdfdfdfd
