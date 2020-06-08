@@ -1,5 +1,7 @@
 var context= new AudioContext();
+
 function notamusical(frecuencia){
+
     var o=context.createOscillator();
     g= context.createGain();
     o.connect(g);
@@ -7,6 +9,6 @@ function notamusical(frecuencia){
     o.frequency.value=frecuencia;
     g.connect(context.destination);
     o.start(0);
-     g.gain.exponentialRampToValueAtTime(0.00001,context.currentTime +1.5);
+    g.gain.exponentialRampToValueAtTime(0.00001,context.currentTime +1.5);
 
 }
