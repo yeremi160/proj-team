@@ -185,7 +185,7 @@ function animar(){
     dibujar();
     movimiento();
     //función para que desaparezca la comida
-    if (cabeza.choque(comida)){
+    if (cabeza.choque(food)){
         food.colocar();
         cabeza.meter();
 
