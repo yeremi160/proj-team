@@ -1,8 +1,8 @@
 //una variable declarada afuera de una función es una variable global
 //variables globales
-const velocidad = 80;
+var velocidad = 83;
 //variable tamaño
-const tam = 10;
+var tam = 10;
 
 //rutinas de detección de coliciones
 //clase que hereda las demás clases y llega los métodos de tetención de lolliciones
@@ -78,8 +78,8 @@ class comida extends objeto{
 
 }
 //objetos del juego
-const cabeza = new cola (20,20);
-const food = new comida ();
+var cabeza = new cola (20,20);
+var food = new comida ();
 
 //variables para lograr el movimiento
 //variables booleanas, van a permitir habilitar lo bloquear los ejes
@@ -141,6 +141,13 @@ function finjuego(){
     food = new comida();
     alert ("Has perdido")
 }
+//funcion para el choque con el canvas
+function choquepared(){
+    if (cabeza.x < 0 || cabeza.x > 449 || cabeza.y < 0 || cabeza.y > 449){
+        finjuego();
+    }
+
+}
 
 function choquecuerpo(){
     var temp = null;
@@ -164,8 +171,8 @@ function choquecuerpo(){
 //motor de juego
 //dibujar
 function dibujar(){
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
     ctx.clearRect(0,0, canvas.clientWidth, canvas.clientHeight);
     cabeza.dibujar(ctx);
     food.dibujar(ctx);
@@ -174,6 +181,7 @@ function dibujar(){
 //llamar las funciones
 function animar(){
     choquecuerpo();
+    choquepared();
     dibujar();
     movimiento();
     //función para que desaparezca la comida
@@ -186,4 +194,4 @@ function animar(){
 }
 //darle función
 setInterval("animar()", velocidad);
-//sdsfsdfdfdfd
+
