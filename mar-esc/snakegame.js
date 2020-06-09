@@ -1,7 +1,7 @@
 //variables globales
-var velocidad = 80;
+var velocidad = 83;
 //variable tamaño
-var tam = 15;
+var tam = 10;
 //rutinas de detección de coliciones
 //clase que hereda las demás clases y llega los métodos de tetención de lolliciones
 class objeto{
@@ -113,6 +113,43 @@ function control(event){
         }
     }
 }
+//funcion para dar final
+function finjuego(){
+    xdir = 0;
+    ydir = 0;
+    ejexv = true;
+    ejey = true;
+    cabeza = new cola(20,20);
+    food = new comida();
+    alert ("Has perdido")
+}
+//funcion para el choque con el canvas
+function choquepared(){
+    if (cabeza.x < 0 || cabeza.x > 449 || cabeza.y < 0 || cabeza.y > 449){
+        finjuego();
+    }
+
+}
+
+//funcion para el choque del cuerpo
+function choquecuerpo(){
+    var temp = null;
+    try{
+        temp = cabeza.versiguiente().versiguiente(); 
+
+    }catch(error ){
+        temp = null;
+    }
+    while (temp  = null){
+        if (cabeza.choque(temp)){
+            //fin de juego
+            finjuego();
+        } else {
+            temp = temp.versiguiente();
+        }
+
+    }
+}
 //motor de juego
 //dibujar
 function dibujar(){
@@ -125,6 +162,8 @@ function dibujar(){
 }
 //llamar las funciones
 function animar(){
+    choquecuerpo();
+    choquepared();
     dibujar();
     movimiento();
     if(cabeza.choque(comida)){
@@ -136,4 +175,6 @@ function animar(){
 
 //darle función
 setInterval("animar()",velocidad)
+//rama nueva
+
    
