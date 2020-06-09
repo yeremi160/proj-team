@@ -136,7 +136,7 @@ function findeJuego(){
 	ejey = true;
 	cabeza = new Cola(0,0);
 	comida = new Comida();
-	alert("Perdiste");
+	alert("¡has perdido!");
 }
 //función para el choque con el canvas
 function choquepared(){
