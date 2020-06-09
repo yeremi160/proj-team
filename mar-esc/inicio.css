@@ -4,10 +4,21 @@ body{
 }
 h1{
     font-family: Verdana;
-    color: white;    
+    color: #f3c623;    
     padding: 30px;
 }
 p{
     font-family: Verdana;
     color: white;
 }
+nav{
+    background-color:#E71414;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: left;
+    padding: 25px;
+    margin-left: 615px;
+    margin-right: 575px;
+    font-size: 25px;
+
+}
+    
