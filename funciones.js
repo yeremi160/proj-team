@@ -3,6 +3,7 @@
 window.onload = function () {
 	canvas = document.getElementById("miCanvas");
 	if (canvas && canvas.getContext) {
+		//nave en medio
 		ctx = canvas.getContext("2d");
 		if (ctx) {
 			//se agregaron imagenes a la funcion
@@ -15,13 +16,13 @@ window.onload = function () {
 			imgNave.onload = function () {
 				nave = new nave(0);
 			}
-			//disparos
+			//ovni enemigo
             imgOvni.onload = function () {
 				for (var i = 0; i < 5; i++) {
 					for (var j = 0; j < 10; j++) {
 						ovnis_array.push(new Enemigo(100 + 40 * j, 30 + 45 * i));
 					}
-				}
+				}//animacion
 				setTimeout(anima, 1500);
 				disparoEnemigo = setTimeout(disparaEnemigo, tiempoDisparo);
 			}
@@ -31,12 +32,13 @@ window.onload = function () {
 	}
 }
 //funciones para navegadores
+//animacion
 window.requestAnimationFrame = (function () {
 	return window.requestAnimationFrame ||
 		window.webkitRequestAnimationFrame ||
 		window.mozRequestAnimationFrame ||
 		function (callback) { window.setTimeout(callback, 17); }
-})();
+})();//detectar teclas 
 document.addEventListener("keydown", function (e) {
 	teclaPulsada = e.keyCode;
 	tecla[e.keyCode] = true;
@@ -124,9 +126,7 @@ function Enemigo(x, y) {
 	this.figura = true;
 	this.vive = true;
 	this.dibuja = function () {
-		//Retraso
 		if (this.ciclos > 20) {
-			//saltitos
 			if (this.veces > this.num) {
 				this.dx *= -1;
 				this.veces = 0;
@@ -176,7 +176,7 @@ function mensaje(cadena) {
 	ctx.font = "bold 75px Arial";
 	ctx.fillText(cadena, lon, 220);
 }
-//balas del enemigo para que destrullan la nave
+//sirve para saber si matamos un enemigo
 function colisiones() {
 	for (var i = 0; i < ovnis_array.length; i++) {
 		for (var j = 0; j < balas_array.length; j++) {
