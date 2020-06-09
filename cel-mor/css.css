@@ -4,7 +4,7 @@
 h1{
     color: #e9e9e9;
     font-family: Verdana;
-   
+   position: sticky;
 }
 body{
 
@@ -18,11 +18,11 @@ body{
  }
 
 ul{
-    height:19em; width:34em;
-    margin:10em auto; padding:3em 0 0 3em; position:relative; 
+    height:19em; width:78em;
+    margin:5em auto; padding:3em 0 0 3em; position:relative; 
     border:1px solid #4a2d6b; border:1em; 
     background:-webkit-gradient(linear, right bottom, left top, color-stop(0%,rgb(230, 222, 222)), color-stop(100%,rgba(0,0,0,0))), url('https://f.cl.ly/items/2q1f3t0C3R1b0g081w3n/vwood.png');
-  box-shadow:0 0 50px rgb(26, 24, 24) inset, 0 1px rgb(212, 153, 125) inset,0 5px 15px rgba(0,0,0,0.5); }
+  box-shadow:0 0 50px rgb(26, 24, 24) inset, 0 1px rgb(212, 153, 125) inset,0 5px 15px rgba(0, 0, 0, 0.815); }
   li { margin:0; padding:0; list-style:none; position:relative; float:left; }
 /*ESTILOS PARA TECLAS BLANCAS
 TAMAÑO Y POSICIÓN*/
@@ -52,8 +52,9 @@ ul .white:active {
 }
  
 .black:active {
+    /*Reacción de la tecla al hacer click*/
     box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset, 0 -2px 2px 3px rgba(0,0,0,0.6) inset, 0 1px 2px rgba(0,0,0,0.5);
-    background:linear-gradient(left, #444 0%,#222 100%);
+    background:linear-gradient(left, rgb(214, 149, 149) 0%,rgb(194, 88, 88) 100%);
 }
  
 .a,.g,.f,.d,.c { margin:0 0 0 -1em;  }
