@@ -31,14 +31,14 @@ class cola extends objeto{
     }
     //método de dibujo
     dibujar(ctx){
-        if (this.sig !== null  ){
+        if (this.sig != null  ){
             this.sig.dibujar(ctx)
         }
         ctx.fillStyle = "#fcbf1e";
         ctx.fillRect(this.x, this.y, this.tam, this.tam);
     }
     setxy(x,y){
-        if (this.sig !== null){
+        if (this.sig != null){
             this.sig.setxy(this.x, this.y)
         }
         this.x = x;
@@ -55,7 +55,7 @@ class cola extends objeto{
         return this.sig;
     }
 }
-class comida extends objeto{
+class eat extends objeto{
     constructor(x,y){
         super();
         this.x = this.generar();
@@ -77,7 +77,7 @@ class comida extends objeto{
 }
 //objetos del juego
 var cabeza = new cola (20,20);
-var food = new comida ();
+var comida = new eat ();
 
 //variables para lograr el movimiento
 //variables booleanas, van a permitir habilitar lo bloquear los ejes
@@ -137,7 +137,7 @@ function finjuego(){
     ejexv = true;
     ejey = true;
     cabeza = new cola(20,20);
-    food = new comida();
+    comida = new eat();
     alert ("Has perdido")
 }
 //funcion para el choque con el canvas
@@ -174,7 +174,7 @@ function dibujar(){
     var ctx = canvas.getContext("2d");
     ctx.clearRect(0,0, canvas.clientWidth, canvas.clientHeight);
     cabeza.dibujar(ctx);
-    food.dibujar(ctx);
+    comida.dibujar(ctx);
     
 }
 //llamar las funciones
@@ -183,8 +183,8 @@ function animar(){
     choquepared();
     dibujar();
     movimiento();
-    if(cabeza.choque(comida)){
-        food.colocar();
+    if(cabeza.choque(eat)){
+        eat.colocar();
     }
 
 }
