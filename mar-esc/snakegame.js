@@ -136,4 +136,6 @@ function animar(){
 
 //darle función
 setInterval("animar()",velocidad)
+//rama nueva
+
    
