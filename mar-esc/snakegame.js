@@ -27,15 +27,32 @@ class cola extends objeto{
         super();
         this.x = x;
         this.y = y;
+        this.sig = null;
     }
     //método de dibujo
     dibujar(ctx){
+        if (this.sig !== null  ){
+            this.sig.dibujar(ctx)
+        }
         ctx.fillStyle = "#fcbf1e";
         ctx.fillRect(this.x, this.y, this.tam, this.tam);
     }
     setxy(x,y){
+        if (this.sig !== null){
+            this.sig.setxy(this.x, this.y)
+        }
         this.x = x;
         this.y = y;
+    }
+    menter(){
+        if (this.sig == null){
+            this.sig = new cola(this.x, this.y)
+        } else {
+            this.sig.menter();
+        }
+    }
+    versiguiente(){
+        return this.sig;
     }
 }
 class comida extends objeto{
@@ -167,7 +184,7 @@ function animar(){
     dibujar();
     movimiento();
     if(cabeza.choque(comida)){
-        comida.colocar();
+        food.colocar();
     }
 
 }
